@@ -26,6 +26,9 @@ const defaultData = { messages: [] };
 const adapter = new JSONFile('db.json');
 const db = new Low(adapter, defaultData);
 
+// Initialize db
+await db.read();
+
 //Serve a public folder
 app.use(express.static('public'));
 app.use(express.json()); //12. parse the data
